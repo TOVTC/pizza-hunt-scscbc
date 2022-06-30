@@ -1,7 +1,7 @@
 
   # Pizza Hunt
   
-  This application uses Express and MongoDB to allow users to create, share, and comment on different, custom pizza recipes.
+  This application uses Express and MongoDB to allow users to create, share, and comment on different, custom pizza recipes. This application also features offline functionality enabled by IndexedDB, which will locally store recipes and automatically upload them when network connection is reestablished.
   
   ## Table of Contents
   
@@ -21,6 +21,7 @@
   * MongoDB
   * Mongoose
   * MongoDB Atlas
+  * IndexedDB
   * Heroku
   * Express
   * Node
