@@ -9,7 +9,7 @@ request.onupgradeneeded = function(event) {
     // save a reference to the database
     const db = event.target.result;
     // create an object store (table) called 'new_pizza', set it to have an autoincrementing primary key of sorts
-    db.createObjectStore('new_pizza', {autoincrement: true});
+    db.createObjectStore('new_pizza', {autoIncrement: true});
 }
 
 // upon a successful request
@@ -31,7 +31,7 @@ request.onerror = function(event) {
 // this function will be executed if we attempt to submit a new pizza and there's no internet connection
 function saveRecord(record) {
     // open a new transaction with the database with read and write permissions
-    const transaction = db.transaction(['new pizza'], 'readwrite');
+    const transaction = db.transaction(['new_pizza'], 'readwrite');
     // access the object store for 'new_pizza'
     const pizzaObjectStore = transaction.objectStore('new_pizza');
     // add record to your store with add method
@@ -40,7 +40,7 @@ function saveRecord(record) {
 
 function uploadPizza() {
     // open a transaction on your db
-    const transaction = db.transaction('[new_pizza', 'readwrite');
+    const transaction = db.transaction(['new_pizza'], 'readwrite');
     // access your object store
     const pizzaObjectStore = transaction.objectStore('new_pizza');
     // get all records from store and set to a variable
@@ -63,7 +63,8 @@ function uploadPizza() {
                     throw new Error(serverResponse);
                 }
                 // open one more transaction
-                const transaction = db.transaction.objectStore('new_pizza');
+                const transaction = db.transaction(['new_pizza'], 'readwrite');
+                const pizzaObjectStore = transaction.objectStore('new_pizza');
                 //clear all items in your store
                 pizzaObjectStore.clear();
                 alert('All saved pizza has been submitted!');
